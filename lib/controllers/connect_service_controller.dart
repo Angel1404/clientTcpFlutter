@@ -15,7 +15,7 @@ class ConnectServiceController extends GetxController {
   Future<bool> connectService(String ip, String port) async {
     try {
       if (!ip.isIPv4 || port.length > 4 || ip.isEmpty || port.isEmpty || !port.isNum) return true;
-      await _connectServerTcp.conectServer();
+      await _connectServerTcp.conectServer(ip, port);
       _connectServerTcp.writeDataIpAndPort(ip, port);
       listenDataServiceConnect();
       return false;

@@ -10,8 +10,8 @@ class ConnectServerTcp {
 
   late final Socket _socket;
 
-  Future conectServer() async {
-    _socket = await Socket.connect('192.168.1.144', 39802);
+  Future conectServer(String ip, String port) async {
+    _socket = await Socket.connect(ip, int.parse(port));
   }
 
   writeDataIMC(String weitgh, String height) async {
